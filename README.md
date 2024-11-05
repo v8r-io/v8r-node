@@ -1,24 +1,11 @@
-# Substrate Node Template
+# v8r node
 
-A fresh [Substrate](https://substrate.io/) node, ready for hacking :rocket:
-
-A standalone version of this template is available for each release of Polkadot
-in the [Substrate Developer Hub Parachain
-Template](https://github.com/substrate-developer-hub/substrate-node-template/)
-repository. The parachain template is generated directly at each Polkadot
-release branch from the [Solochain Template in
-Substrate](https://github.com/paritytech/polkadot-sdk/tree/master/templates/solochain)
-upstream
-
-It is usually best to use the stand-alone version to start a new project. All
-bugs, suggestions, and feature requests should be made upstream in the
-[Substrate](https://github.com/paritytech/polkadot-sdk/tree/master/substrate)
-repository.
+a v8r node, ready for block building :rocket:
 
 ## Getting Started
 
 Depending on your operating system and Rust version, there might be additional
-packages required to compile this template. Check the
+packages required to compile this code. Check the
 [Install](https://docs.substrate.io/install/) instructions for your platform for
 the most common dependencies. Alternatively, you can use one of the [alternative
 installation](#alternatives-installations) options.
@@ -28,7 +15,7 @@ installation](#alternatives-installations) options.
 Use the following command to build the node without launching it:
 
 ```sh
-cargo build --package solochain-template-node --release
+cargo build --package v8r --release
 ```
 
 ### Embedded Docs
@@ -37,7 +24,7 @@ After you build the project, you can use the following command to explore its
 parameters and subcommands:
 
 ```sh
-./target/release/solochain-template-node -h
+./target/release/v8r --help
 ```
 
 You can generate and view the [Rust
@@ -54,19 +41,19 @@ The following command starts a single-node development chain that doesn't
 persist state:
 
 ```sh
-./target/release/solochain-template-node --dev
+./target/release/v8r --dev
 ```
 
 To purge the development chain's state, run the following command:
 
 ```sh
-./target/release/solochain-template-node purge-chain --dev
+./target/release/v8r purge-chain --dev
 ```
 
 To start the development chain with detailed logging, run the following command:
 
 ```sh
-RUST_BACKTRACE=1 ./target/release/solochain-template-node -ldebug --dev
+RUST_BACKTRACE=1 ./target/release/v8r -ldebug --dev
 ```
 
 Development chains:
@@ -86,7 +73,7 @@ similar to the following:
 $ mkdir my-chain-state
 
 // Use of that folder to store the chain state
-$ ./target/release/solochain-template-node --dev --base-path ./my-chain-state/
+$ ./target/release/v8r --dev --base-path ./my-chain-state/
 
 // Check the folder structure created inside the base path after running the chain
 $ ls ./my-chain-state
@@ -208,7 +195,7 @@ to generically define the types and parameters it depends on.
 ## Alternatives Installations
 
 Instead of installing dependencies and building this source directly, consider
-the following alternatives.
+the following alternative.
 
 ### Nix
 
@@ -216,9 +203,3 @@ Install [nix](https://nixos.org/) and
 [nix-direnv](https://github.com/nix-community/nix-direnv) for a fully
 plug-and-play experience for setting up the development environment. To get all
 the correct dependencies, activate direnv `direnv allow`.
-
-### Docker
-
-Please follow the [Substrate Docker instructions
-here](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/docker/README.md) to
-build the Docker container with the Substrate Node Template binary.
